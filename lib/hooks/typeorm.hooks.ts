@@ -38,10 +38,8 @@ export const registerEntity: TypeormEntityRegisterer = (
   key: string,
   entity: TypeormEntity
 ): ModuleRegisterer => {
+  entities.set(key, entity);
   return {
     key,
-    install() {
-      entities.set(key, entity);
-    },
   };
 };
