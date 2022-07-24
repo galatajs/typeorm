@@ -1,40 +1,32 @@
 import {
-  isEntity,
   TypeormApp,
   TypeormAppCreator,
   TypeormEntity,
   TypeormEntityRegisterer,
   TypeormOptions,
 } from "../app/typeorm.app";
-import { ModuleRegisterer } from "@istanbul/app";
+import { App, ModuleRegisterer } from "@istanbul/app";
 import { DataSource } from "typeorm";
 
-const entities = new Set<TypeormEntity>();
+const entities = new Map<string, TypeormEntity>();
 
 export const createTypeorm: TypeormAppCreator = (
   options: TypeormOptions
 ): TypeormApp => {
-  if (
-    options.entities &&
-    Array.isArray(options.entities) &&
-    options.entities.length > 0
-  ) {
-    options.entities.forEach((entity) => {
-      if (isEntity(entity)) {
-        entities.add(entity);
-      }
-    });
-  }
   return {
     build() {
       return {
         name: "typeorm",
         version: "0.0.1",
-        install: async () => {
+        install: async (app: App) => {
           const dataSource = new DataSource({
             ...options,
-            entities: Array.from(entities),
+            entities: Array.from(entities.values()),
           });
+          for (const [key, entity] of entities.entries()) {
+            const repository = dataSource.getRepository(entity);
+            app.store.provide(key, repository);
+          }
           await dataSource.initialize();
         },
       };
@@ -43,11 +35,13 @@ export const createTypeorm: TypeormAppCreator = (
 };
 
 export const registerEntity: TypeormEntityRegisterer = (
+  key: string,
   entity: TypeormEntity
 ): ModuleRegisterer => {
   return {
+    key,
     install() {
-      entities.add(entity);
+      entities.set(key, entity);
     },
   };
 };

@@ -13,5 +13,6 @@ export function isEntity(entity: any): entity is TypeormEntity {
 
 export type TypeormAppCreator = (options: TypeormOptions) => TypeormApp;
 export type TypeormEntityRegisterer = (
+  key: string,
   entity: TypeormEntity
 ) => ModuleRegisterer;

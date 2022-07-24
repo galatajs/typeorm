@@ -1,6 +1,6 @@
 {
   "name": "@istanbul/typeorm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Typeorm package of istanbul framework",
   "homepage": "https://github.com/istanbulnode/typeorm#readme",
   "keywords": [
@@ -32,7 +32,7 @@
     "build": "npm run clear && tsc"
   },
   "dependencies": {
-    "@istanbul/app": "^0.0.15",
+    "@istanbul/app": "^0.0.16",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.7"
   },
