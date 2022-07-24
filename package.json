@@ -1,0 +1,51 @@
+{
+  "name": "@istanbul/typeorm",
+  "version": "0.0.1",
+  "description": "Typeorm package of istanbul framework",
+  "homepage": "https://github.com/istanbulnode/typeorm#readme",
+  "keywords": [
+    "typescript",
+    "istanbul",
+    "istanbuljs",
+    "typeorm"
+  ],
+  "author": "Sami Salih İBRAHİMBAŞ",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/istanbulnode/typeorm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/istanbulnode/typeorm/issues"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "test": "jest --watchAll --no-cache",
+    "clear": "del-cli ./dist/*",
+    "build": "npm run clear && tsc"
+  },
+  "dependencies": {
+    "@istanbul/app": "^0.0.15",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.7.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/$1",
+      "~/(.*)": "<rootDir>/$1"
+    }
+  }
+}
