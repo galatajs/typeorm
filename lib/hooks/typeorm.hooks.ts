@@ -5,7 +5,7 @@ import {
   TypeormEntityRegisterer,
   TypeormOptions,
 } from "../app/typeorm.app";
-import { App, ModuleRegisterer } from "@istanbul/app";
+import { App, ModuleRegisterer } from "@galatajs/app";
 import { DataSource } from "typeorm";
 
 const entities = new Map<string, TypeormEntity>();

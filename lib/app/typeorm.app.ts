@@ -1,4 +1,4 @@
-import { CorePluginCreator, ModuleRegisterer } from "@istanbul/app";
+import { CorePluginCreator, ModuleRegisterer } from "@galatajs/app";
 import { DataSourceOptions, EntitySchema } from "typeorm";
 
 export interface TypeormApp extends CorePluginCreator {}

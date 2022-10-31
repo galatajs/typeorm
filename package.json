@@ -1,22 +1,20 @@
 {
-  "name": "@istanbul/typeorm",
-  "version": "0.0.4",
-  "description": "Typeorm package of istanbul framework",
-  "homepage": "https://github.com/istanbulnode/typeorm#readme",
+  "name": "@galatajs/typeorm",
+  "version": "0.1.1",
+  "description": "Typeorm package of galatajs framework",
+  "homepage": "https://github.com/galatajs/typeorm#readme",
   "keywords": [
     "typescript",
-    "istanbul",
-    "istanbuljs",
     "typeorm"
   ],
   "author": "Sami Salih İBRAHİMBAŞ",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/istanbulnode/typeorm.git"
+    "url": "git+https://github.com/galatajs/typeorm.git"
   },
   "bugs": {
-    "url": "https://github.com/istanbulnode/typeorm/issues"
+    "url": "https://github.com/galatajs/typeorm/issues"
   },
   "directories": {
     "lib": "lib"
@@ -32,7 +30,7 @@
     "build": "npm run clear && tsc"
   },
   "dependencies": {
-    "@istanbul/app": "^0.0.29",
+    "@galatajs/app": "^0.1.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.7"
   },
